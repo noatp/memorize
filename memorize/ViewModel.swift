@@ -16,7 +16,7 @@ class GameViewModel{
     }
     
     private var memoryGameModel: MemoryGameModel<String> = MemoryGameModel(
-        numberOfPairs: 5,
+        numberOfPairs: 10,
         generateCardContent: generateCardContent
     )
     

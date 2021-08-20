@@ -13,14 +13,13 @@ struct ContentView: View {
     
     var body: some View {
         ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false, content: {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100, maximum: 200))]){
+            LazyVGrid(columns: [GridItem(.adaptive(minimum:80))]){
                 ForEach(gameViewModel.cards){ card in
                     CardView(card: card).aspectRatio(2/3, contentMode: .fit)
                 }
             }
             .padding()
         })
-        .padding(.horizontal)
     }
 }
 
