@@ -8,36 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
-    var emojis = ["😃", "😅", "🥳", "🧐"]
+    
+    let gameViewModel = GameViewModel()
+    
     var body: some View {
-        HStack{
-            ForEach(emojis, id: \.self, content: { emoji in
-                CardView(content: emoji)
-            })
-        }
+        ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false, content: {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100, maximum: 200))]){
+                ForEach(gameViewModel.cards){ card in
+                    CardView(card: card).aspectRatio(2/3, contentMode: .fit)
+                }
+            }
+            .padding()
+        })
         .padding(.horizontal)
     }
 }
 
 struct CardView: View{
-    @State var isFaceUp = true
-    var content: String
+    let card: MemoryGameModel<String>.Card
     
     var body: some View{
         ZStack{
             let cardShape = RoundedRectangle(cornerRadius: 25.0)
-            if(isFaceUp){
+            if(!card.isFaceUp){
                 cardShape.stroke(Color.green, lineWidth: 3)
                 cardShape.fill(Color.white)
-                Text(content).font(.largeTitle)
+                Text(card.cardContent).font(.largeTitle)
             }
             else{
                 cardShape.fill(Color.green)
             }
             
-        }
-        .onTapGesture{
-            isFaceUp = !isFaceUp
         }
     }
 }
