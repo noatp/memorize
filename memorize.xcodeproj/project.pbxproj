@@ -99,6 +99,7 @@
 		459AF89E26CC2E1A00EB4D18 /* memorize */ = {
 			isa = PBXGroup;
 			children = (
+				45E3861526D0CEF500337D52 /* tes */,
 				459AF89F26CC2E1A00EB4D18 /* memorizeApp.swift */,
 				459AF8A126CC2E1A00EB4D18 /* ContentView.swift */,
 				458A92E226CF7048009891EA /* Model.swift */,
@@ -134,6 +135,13 @@
 				459AF8BE26CC2E1C00EB4D18 /* Info.plist */,
 			);
 			path = memorizeUITests;
+			sourceTree = "<group>";
+		};
+		45E3861526D0CEF500337D52 /* tes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = tes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
