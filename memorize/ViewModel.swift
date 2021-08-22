@@ -22,23 +22,3 @@ class GameViewModel: ObservableObject{
     }
 }
 
-//class GameViewModel: ObservableObject{
-//    static let emojis = ["😃", "😅", "🥳", "🧐", "🤨", "😵", "😪", "😵‍💫", "🤐", "🤢", "😷", "🙄", "😱", "😡", "🤬"]
-//    
-//    static func generateCardContent(index: Int) -> String{
-//        return emojis[index]
-//    }
-//    
-//    @Published private var memoryGameModel: MemoryGameModel<String> = MemoryGameModel(
-//        numberOfPairs: 10,
-//        generateCardContent: generateCardContent
-//    )
-//    
-//    var cards: Array<MemoryGameModel<String>.Card>{
-//        return memoryGameModel.cards
-//    }
-//    
-//    func onTapCard(card: MemoryGameModel<String>.Card){
-//        memoryGameModel.tapCard(card: card)
-//    }
-//}

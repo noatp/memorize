@@ -9,7 +9,11 @@ import Foundation
 
 struct GameModel{
     private(set) var cards: [Card] = []
-    private var currentFaceUpCardIndex: Int? = nil
+    private var theOnlyFaceUpCardIndex: Int?{
+        get{ cards.indices.filter { index in cards[index].isFaceUp }.oneAndOnlyOne }
+        set{ cards.indices.forEach { index in cards[index].isFaceUp = (newValue == index)} }
+    }
+    
     
     struct ContentPool{
         static var emojis = ["😃", "😅", "🥳", "🧐", "🤨", "😵", "😪", "😵‍💫", "🤐", "🤢", "😷", "🙄", "😱", "😡", "🤬"]
@@ -38,53 +42,29 @@ struct GameModel{
            !tappedCard.isMatched,
            !tappedCard.isFaceUp
         {
-            if let firstFaceUpCardIndex = currentFaceUpCardIndex{
+            if let firstFaceUpCardIndex = theOnlyFaceUpCardIndex{
                 if (tappedCard.cardContent == cards[firstFaceUpCardIndex].cardContent)
                 {
                     cards[tappedCardIndex].isMatched = true
                     cards[firstFaceUpCardIndex].isMatched = true
                 }
-                currentFaceUpCardIndex = nil
+                cards[tappedCardIndex].isFaceUp = true
             }
             else{
-                for cardIndex in cards.indices{
-                    cards[cardIndex].isFaceUp = false
-                }
-                currentFaceUpCardIndex = tappedCardIndex
+                theOnlyFaceUpCardIndex = tappedCardIndex
             }
-            cards[tappedCardIndex].isFaceUp.toggle()
         }
     }
 }
 
 
-
-
-//struct MemoryGameModel<CardContent>{
-//    private (set) var cards: Array<Card>
-//    
-//    mutating func tapCard(card: Card){
-//        cards[card.id].isFaceUp.toggle()
-//    }
-//    
-//    init(
-//        numberOfPairs: Int,
-//        generateCardContent: (Int) -> CardContent
-//    ){
-//        cards = Array<Card>()
-//        for index in 0..<numberOfPairs{
-//            let content: CardContent = generateCardContent(index)
-//            cards.append(Card(cardContent: content, id: index*2))
-//            cards.append(Card(cardContent: content, id: index*2+1))
-//        }
-//    }
-//    
-//    struct Card: Identifiable{
-//        var cardContent: CardContent
-//        var isFaceUp: Bool = false
-//        var isMatched: Bool = false
-//        var id: Int
-//    }
-//}
-
-
+extension Array{
+    var oneAndOnlyOne: Element? {
+        if (count == 1){
+            return first
+        }
+        else{
+            return nil
+        }
+    }
+}
