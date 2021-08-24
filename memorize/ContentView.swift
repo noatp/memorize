@@ -29,22 +29,24 @@ struct CardView: View{
     let card: GameModel.Card
     
     var body: some View{
-        ZStack{
-            let cardShape = RoundedRectangle(cornerRadius: 25.0)
-            if(card.isMatched){
-                cardShape.stroke(Color.green, lineWidth: 3)
-                cardShape.fill(Color.white)
-                Text(card.cardContent).font(.largeTitle)
-                cardShape.fill(Color.white.opacity(0.7))
-            }
-            else{
-                if(card.isFaceUp){
+        GeometryReader{ geometry in
+            ZStack{
+                let cardShape = RoundedRectangle(cornerRadius: 25.0)
+                if(card.isMatched){
                     cardShape.stroke(Color.green, lineWidth: 3)
                     cardShape.fill(Color.white)
-                    Text(card.cardContent).font(.largeTitle)
+                    Text(card.cardContent).font(Font.system(size: min(geometry.size.width, geometry.size.height) * 0.8))
+                    cardShape.fill(Color.white.opacity(0.7))
                 }
                 else{
-                    cardShape.fill(Color.green)
+                    if(card.isFaceUp){
+                        cardShape.stroke(Color.green, lineWidth: 3)
+                        cardShape.fill(Color.white)
+                        Text(card.cardContent).font(Font.system(size: min(geometry.size.width, geometry.size.height) * 0.8))
+                    }
+                    else{
+                        cardShape.fill(Color.green)
+                    }
                 }
             }
         }
