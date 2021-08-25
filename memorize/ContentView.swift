@@ -12,16 +12,12 @@ struct ContentView: View {
     @ObservedObject var gameViewModel = GameViewModel()
     
     var body: some View {
-        ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false, content: {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]){
-                ForEach(gameViewModel.cards){ card in 
-                    CardView(card: card)
-                        .aspectRatio(2/3, contentMode: .fit)
-                        .onTapGesture {gameViewModel.tapCard(tappedCard: card)}
-                }
-            }
-            .padding()
-        })
+        AspectVGrid(items: gameViewModel.cards, aspectRatio: 2/3){ card in
+            CardView(card: card)
+                .padding(4)
+                .onTapGesture {gameViewModel.tapCard(tappedCard: card)}
+        }
+        .padding()
     }
 }
 

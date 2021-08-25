@@ -15,6 +15,7 @@
 		459AF8A726CC2E1C00EB4D18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459AF8A626CC2E1C00EB4D18 /* Preview Assets.xcassets */; };
 		459AF8B226CC2E1C00EB4D18 /* memorizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AF8B126CC2E1C00EB4D18 /* memorizeTests.swift */; };
 		459AF8BD26CC2E1C00EB4D18 /* memorizeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459AF8BC26CC2E1C00EB4D18 /* memorizeUITests.swift */; };
+		45E788CF26D6ADA600AE8587 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E788CE26D6ADA600AE8587 /* AspectVGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		459AF8B826CC2E1C00EB4D18 /* memorizeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = memorizeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		459AF8BC26CC2E1C00EB4D18 /* memorizeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memorizeUITests.swift; sourceTree = "<group>"; };
 		459AF8BE26CC2E1C00EB4D18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45E788CE26D6ADA600AE8587 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +101,6 @@
 		459AF89E26CC2E1A00EB4D18 /* memorize */ = {
 			isa = PBXGroup;
 			children = (
-				45E3861526D0CEF500337D52 /* tes */,
 				459AF89F26CC2E1A00EB4D18 /* memorizeApp.swift */,
 				459AF8A126CC2E1A00EB4D18 /* ContentView.swift */,
 				458A92E226CF7048009891EA /* Model.swift */,
@@ -107,6 +108,7 @@
 				459AF8A826CC2E1C00EB4D18 /* Info.plist */,
 				459AF8A526CC2E1C00EB4D18 /* Preview Content */,
 				458A92E526CF7679009891EA /* ViewModel.swift */,
+				45E788CE26D6ADA600AE8587 /* AspectVGrid.swift */,
 			);
 			path = memorize;
 			sourceTree = "<group>";
@@ -135,13 +137,6 @@
 				459AF8BE26CC2E1C00EB4D18 /* Info.plist */,
 			);
 			path = memorizeUITests;
-			sourceTree = "<group>";
-		};
-		45E3861526D0CEF500337D52 /* tes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = tes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +271,7 @@
 				458A92E326CF7048009891EA /* Model.swift in Sources */,
 				459AF8A226CC2E1A00EB4D18 /* ContentView.swift in Sources */,
 				458A92E626CF7679009891EA /* ViewModel.swift in Sources */,
+				45E788CF26D6ADA600AE8587 /* AspectVGrid.swift in Sources */,
 				459AF8A026CC2E1A00EB4D18 /* memorizeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
